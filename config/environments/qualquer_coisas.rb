@@ -1,0 +1,1 @@
+puts "\n\n\n\nEstou sendo impresso durante o rails server\n\n\n"

@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    models:
+      warehouse: 'Galpão'
+      supplier: 'Fornecedor'
+    attributes: 
+      warehouse:
+        name: "Nome"
+        code: "Código"
+        description: "Descrição do galpão"
+        cep: "CEP"
+        address: "Endereço"
+        city: "Cidade"
+        area: "Área"
+      supplier:
+        corporate_name: "Razão Social"
+        brand_name: "Nome Fantasia"
+        full_address: "Endereço"
+        registration_number: "CNPJ"
+        city: "Cidade"
+        state: "Estado"
+        email: "Email"

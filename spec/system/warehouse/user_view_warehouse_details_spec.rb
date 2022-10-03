@@ -14,7 +14,7 @@ describe 'Usuário vê detalhes de um galpão' do
     click_on('Aeroporto SP')
 
     # Assert
-    expect(page).to have_content('Galpão GRU')
+    expect(page).to have_content('GRU')
     expect(page).to have_content('Nome: Aeroporto SP')
     expect(page).to have_content('Cidade: Guarulhos')
     expect(page).to have_content('Área: 100000 m2')
