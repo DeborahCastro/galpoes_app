@@ -16,10 +16,29 @@ describe 'Usuário vê modelos de produtos' do
 
   it 'com sucesso' do
     # Arrange
-    supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronics LTDA', registration_number: '8796579843650', full_address: 'Av Nacoes Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsumg.com.br')
+    supplier = Supplier.create!(brand_name: 'Samsung', 
+                                corporate_name: 'Samsung Eletronics LTDA', 
+                                registration_number: '8796579843650', 
+                                full_address: 'Av Nacoes Unidas, 1000', 
+                                city: 'São Paulo', 
+                                state: 'SP', 
+                                email: 'sac@samsumg.com.br')
    
-    ProductModel.create!(name: 'TV 32', weight: 8000, width: 70, height: 45, depth: 10, sku: 'TV32-SAMSU-XPTO090', supplier: supplier)
-    ProductModel.create!(name:'SoundBar 7.1 Surround', weight: 3000, width: 80, height: 15, depth: 20, sku: 'SOU71-SAMSU-NOIZ7',supplier: supplier)
+    ProductModel.create!(name: 'TV 32', 
+                        weight: 8000, 
+                        width: 70, 
+                        height: 45, 
+                        depth: 10, 
+                        sku: 'TV32-SAMSU-XPTO09090', 
+                        supplier: supplier)
+
+    ProductModel.create!(name:'SoundBar 7.1 Surround', 
+                        weight: 3000, 
+                        width: 80, 
+                        height: 15, 
+                        depth: 20, 
+                        sku: 'SOU71-SAMSU-NOIZ7234',
+                        supplier: supplier)
     
     # Act
       visit root_path
@@ -29,7 +48,7 @@ describe 'Usuário vê modelos de produtos' do
 
     # Assert
     expect(page).to have_content 'TV 32'
-    expect(page).to have_content 'TV32-SAMSU-XPTO090'
+    expect(page).to have_content 'TV32-SAMSU-XPTO09090'
     expect(page).to have_content 'Samsung'
     expect(page).to have_content 'SoundBar 7.1 Surround'
     expect(page).to have_content 'SOU71-SAMSU-NOIZ7'

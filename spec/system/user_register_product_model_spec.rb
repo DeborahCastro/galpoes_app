@@ -3,8 +3,21 @@ require 'rails_helper'
 describe 'Usuário cadastra um modelo de produto' do
   it 'com sucesso' do
     # Arrange
-    supplier = Supplier.create!(brand_name: 'Samsung', corporate_name: 'Samsung Eletronics LTDA', registration_number: '8796798436509', full_address: 'Av Nacoes Unidas, 1000', city: 'São Paulo', state: 'SP', email: 'sac@samsumg.com.br')
-    other_supplier = Supplier.create!(brand_name: 'LG', corporate_name: 'LG do Brasil LTDA', registration_number: '0786234957708', full_address: 'Av Ibirapuera, 300', city: 'São Paulo', state: 'SP', email: 'contato@lg.com.br')
+    supplier = Supplier.create!(brand_name: 'Samsung', 
+                                corporate_name: 'Samsung Eletronics LTDA', 
+                                registration_number: '8796798436509', 
+                                full_address: 'Av Nacoes Unidas, 1000', 
+                                city: 'São Paulo', 
+                                state: 'SP', 
+                                email: 'sac@samsumg.com.br')
+    
+    other_supplier = Supplier.create!(brand_name: 'LG', 
+                                      corporate_name: 'LG do Brasil LTDA', 
+                                      registration_number: '0786234957708', 
+                                      full_address: 'Av Ibirapuera, 300', 
+                                      city: 'São Paulo', 
+                                      state: 'SP', 
+                                      email: 'contato@lg.com.br')
     
     # Act
     visit root_path
@@ -15,7 +28,7 @@ describe 'Usuário cadastra um modelo de produto' do
     fill_in 'Altura', with: 60
     fill_in 'Largura', with: 90
     fill_in 'Profundidade', with: 10
-    fill_in 'SKU', with: 'TV40-SAMS-XPTO'
+    fill_in 'SKU', with: 'TV40-SAMS-XPTO-12345'
     select 'Samsung', from: 'Fornecedor'
     click_on 'Enviar'
 
