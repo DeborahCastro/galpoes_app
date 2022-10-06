@@ -9,10 +9,10 @@ class ProductModelsController < ApplicationController
   end
 
   def create
+    @suppliers = Supplier.all
     product_model_params = params.require(:product_model).permit(:name, :height, :width, :depth, :weight, :sku, :supplier_id)
       
     @product_model = ProductModel.new(product_model_params)
-    @suppliers = Supplier.all
 
     if @product_model.save
       redirect_to @product_model, notice: 'Modelo de produto cadastrado com sucesso.'
