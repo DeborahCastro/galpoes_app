@@ -15,3 +15,17 @@
 <div>
   <%= link_to('Voltar', root_path) %>
 </div>
+
+<h1>Modelos de Produto: </h3>
+
+<% @supplier.product_model.each do |pm| %>
+  <h2><%= pm.name %></h2>
+  <dl>
+    <dt>Peso:</dt>
+    <dd><%= pm.weight %> g</dd>
+    <dt>Dimensões:</dt>
+    <dd><%= pm.width %> cm x <%= pm.height %> cm x <%= pm.depth %> cm</dd>
+    <dt>SKU:</dt>
+    <dd><%= pm.sku %></dd>
+  </dl>
+<% end %>
