@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Usuário cadastra um modelo de produto' do
   it 'com sucesso' do
     # Arrange
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     supplier = Supplier.create!(brand_name: 'Samsung', 
                                 corporate_name: 'Samsung Eletronics LTDA', 
                                 registration_number: '8796798436509', 
@@ -20,6 +21,7 @@ describe 'Usuário cadastra um modelo de produto' do
                                       email: 'contato@lg.com.br')
     
     # Act
+    login_as(user)
     visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
@@ -43,6 +45,7 @@ describe 'Usuário cadastra um modelo de produto' do
 
   it 'deve preencher todos os campos' do
     # Arrange
+   user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     supplier = Supplier.create!(brand_name: 'Samsung', 
                                 corporate_name: 'Samsung Eletronics LTDA', 
                                 registration_number: '8796798436509', 
@@ -52,6 +55,7 @@ describe 'Usuário cadastra um modelo de produto' do
                                 email: 'sac@samsumg.com.br')
 
   # Act 
+  login_as(user)
   visit root_path
     click_on 'Modelos de Produtos'
     click_on 'Cadastrar Novo'
