@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'Usuário vê fornecedores' do
   it 'a partir da tela inicial' do
     # Arrange
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     Supplier.create!(corporate_name: 'ACME LTDA', 
                     brand_name: 'ACME', 
                     registration_number: '4354239879698',
@@ -12,6 +13,7 @@ describe 'Usuário vê fornecedores' do
                     email: 'contato@acme.com')
     
     # Act 
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'
@@ -24,6 +26,7 @@ describe 'Usuário vê fornecedores' do
   end
 
   it 'e volta para a tela inicial' do
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     # Arrange
     Supplier.create!(corporate_name: 'ACME LTDA', 
                     brand_name: 'ACME', 
@@ -34,6 +37,7 @@ describe 'Usuário vê fornecedores' do
                     email: 'contato@acme.com')
     
     # Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'
@@ -43,6 +47,7 @@ describe 'Usuário vê fornecedores' do
   end
   
   it 'vê modelos de produtos na página de fornecedores' do
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     # Arrange
     s = Supplier.create!(corporate_name: 'ACME LTDA', 
                     brand_name: 'ACME', 
@@ -61,6 +66,7 @@ describe 'Usuário vê fornecedores' do
                       supplier: s)
     
     # Act 
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'

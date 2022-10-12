@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário edita um fornecedor' do
   it 'a partir da página do detalhes ' do
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     # Arrange
     s = Supplier.create!(corporate_name: 'ACME LTDA', 
                         brand_name: 'ACME', 
@@ -12,6 +13,7 @@ describe 'Usuário edita um fornecedor' do
                         email: 'contato@acme.com')
 
     # Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'
@@ -29,6 +31,7 @@ describe 'Usuário edita um fornecedor' do
   end
 
   it 'com sucesso' do
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
     # Arrange
     s = Supplier.create!(corporate_name: 'ACME LTDA', 
       brand_name: 'ACME', 
@@ -39,6 +42,7 @@ describe 'Usuário edita um fornecedor' do
       email: 'contato@acme.com')
 
     # Act
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
     click_on 'ACME'

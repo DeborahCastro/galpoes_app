@@ -3,8 +3,10 @@ require 'rails_helper'
 describe 'Usuário vê fornecedores' do
   it 'a partir do menu' do
     # Arrange
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
 
     # Act 
+    login_as(user)
     visit root_path
     click_on 'Fornecedores'
 
@@ -14,6 +16,8 @@ describe 'Usuário vê fornecedores' do
 
   it 'com sucesso' do
     # Arrange
+    user = User.create!(name: "João", email: 'joao@gmail.com', password: 'password')
+
     Supplier.create!(corporate_name: 'ACME LTDA', 
                     brand_name: 'ACME', 
                     registration_number: '4354239879698', 
@@ -31,6 +35,7 @@ describe 'Usuário vê fornecedores' do
                     email: 'vendas@spark.com')
 
     # Act
+    login_as(user)
     visit root_path
     within('nav') do
       click_on 'Fornecedores'
